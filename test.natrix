@@ -1,0 +1,6 @@
+^ sample natrix scripts;
+^ always end lines (including comments!) with a semicolon: ;
+
+^ declaring a variable:;
+loc number = 3;
+loc string = "wow";
