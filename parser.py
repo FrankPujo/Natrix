@@ -1,12 +1,15 @@
 import sys
 
-# function assign a variable
+# assign a value to a variable
 def parseAssignVar( content ):
 	tokens = content.split( " " )
 	identifier = tokens[1]
-	i = 3
-	if tokens[i].isdigit():
-		value = int ( tokens[i] )
+	if tokens[3].isdigit():
+		operation = ""
+		for i in range( len( tokens ) ):
+			if i != 0 and i != 1 and i != 2:
+				operation += tokens[i]
+		value = eval( operation )
 	else:
 		value = ""
 		for i in range( len( tokens ) ):
@@ -15,6 +18,15 @@ def parseAssignVar( content ):
 				value += " "
 		value = value.lstrip("\"").rstrip(" ").rstrip("\"")
 	memory[ identifier ] = value
+
+# print statement
+def printStatement( content ):
+	stuff = content[6:]
+	
+	if stuff[:1] == "\"":
+		print( stuff[1:-1] )
+	else:
+		print( memory[ stuff ] )
 
 # read and prepare source code from chosen file
 filename = sys.argv[1]
@@ -27,7 +39,7 @@ lines = sourceCode.split( ";" )
 # variables memory
 memory = {}
 
-# read lin by line
+# read line by line and call functions for each
 for line in lines:
 	tokens = line.split( " " )
 	firstToken = tokens[0]
@@ -35,8 +47,8 @@ for line in lines:
 		parseAssignVar( line )
 	elif firstToken == "^":
 		continue
-	#elif firstToken == "print":
-		#printStatement()
+	elif firstToken == "print":
+		printStatement( line )
 
 # check all the stored variables
-print( memory )
+# print( memory )
