@@ -1,10 +1,27 @@
 ^ sample natrix scripts;
 ^ always end lines (including comments!) with a semicolon: ;
 ^ also: leave a space after the ^ symbol for comments;
+^ this way making multi-line comments is very easy:
+done!
+and now we can end it;
 
 ^ declaring a variable:;
 loc number = 3 + 2;
 loc string = "wow, really cool!";
 
+^ you can print both simple strings and variables;
 print "something";
-print string
+print string;
+print number;
+
+loc i = 1;
+^ right now it's impossible to assign a variable the value of another variable compared;
+loc test = i + number;
+print test;
+
+loc numb = 2;
+loc obj = numb * 6;
+print obj;
+
+loop i for 3;
+	loc thingInLoop = 2
