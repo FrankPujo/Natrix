@@ -1,5 +1,6 @@
 # Natrix
-Natrix is a simple toy-language in Python  
+![Alt text](https://raw.githubusercontent.com/FrankPujo/Natrix/main/Natrix.png)  
+**Natrix is a simple toy-language in Python**  
 Run:  
 > python parser.py filename.natrix  
 
